@@ -89,7 +89,7 @@ class BoardManager:
     def is_valid_action(self, action):
         try:
             return self._state.board[action] == 0
-        except Exception as e:
+        except Exception:
             return False
 
     def step(self, action, render=False):
@@ -129,8 +129,7 @@ class BoardManager:
 
     @staticmethod
     def _render(board, board_size):
-        print('============')
-        rows = []
+        rows = ['============']
         n = board_size
         for row in range(n):
             offset = n * row
