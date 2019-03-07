@@ -1,8 +1,9 @@
 import argparse
 import random
 
-from board import BoardManager
+from board import Board
 from uct import uct_search
+
 
 parser = argparse.ArgumentParser(description='Configuration.')
 parser.add_argument('-m', '--mode', default='human', type=str,
@@ -46,7 +47,7 @@ def make_move(state, board, turn, num_simulations):
 
 
 def game(mode, board_size, num_simulations):
-    board = BoardManager(board_size)
+    board = Board(board_size)
     print(board)
     state = board.get_state()
     players = ['P1', 'P2'] if mode == 'human' else ['P1', 'AI']
